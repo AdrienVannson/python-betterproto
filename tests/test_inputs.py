@@ -70,7 +70,7 @@ test_cases = TestCases(
     xfail=test_input_config.xfail,
 )
 
-plugin_output_package = "tests.output_betterproto"
+plugin_output_package = "tests.output_betterproto_pydantic"
 reference_output_package = "tests.output_reference"
 
 TestData = namedtuple("TestData", ["plugin_module", "reference_module", "json_data"])
@@ -162,7 +162,9 @@ def test_data(request, reset_sys_path):
 @pytest.mark.parametrize("test_data", test_cases.messages, indirect=True)
 def test_message_can_instantiated(test_data: TestData) -> None:
     plugin_module, *_ = test_data
-    plugin_module.Test()
+    message = plugin_module.Test()
+
+    assert message.__pydantic_complete__
 
 
 @pytest.mark.parametrize("test_data", test_cases.messages, indirect=True)
