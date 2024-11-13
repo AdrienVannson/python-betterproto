@@ -10,7 +10,7 @@ public class CompatibilityTest {
             throw new RuntimeException(
                     "Attempted to run with more than the expected number of arguments (>1).");
 
-        Tests tests = new Tests(args[1]);
+        Tests tesxxxxxxxts = new Tests(args[1]);
 
         switch (args[0]) {
             case "single_varint":

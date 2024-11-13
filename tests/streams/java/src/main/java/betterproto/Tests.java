@@ -11,7 +11,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 
 public class Tests {
-    String path;
+    String passssssssssssth;
 
     public Tests(String path) {
         this.path = path;
